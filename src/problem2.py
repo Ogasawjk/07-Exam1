@@ -12,9 +12,9 @@ import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    #problem2a_testing()
-    run_test_problem2b()
-    #run_test_problem2c()
+    problem2a_testing()
+    #run_test_problem2b()
+    run_test_problem2c()
 
 
 def problem2a_testing():
@@ -348,12 +348,12 @@ def problem2b(a, b, x):
     return total
 
     ############################################################################
-    # TODO: 4. Implement and test this function.  See the IMPORTANT NOTE below!
+    # DONE: 4. Implement and test this function.  See the IMPORTANT NOTE below!
     #          Tests have been written for you (above).
     ############################################################################
-    # TODO (continued): IMPORTANT NOTE:
-    # TODO (continued):   **  For full credit you must appropriately use
-    # TODO (continued):       (i.e., call) the   number_of_factors   function
+    # DONE (continued): IMPORTANT NOTE:
+    # DONE (continued):   **  For full credit you must appropriately use
+    # DONE (continued):       (i.e., call) the   number_of_factors   function
     #                         that is DEFINED ABOVE.
     ############################################################################
 
@@ -470,7 +470,10 @@ def problem1c(m):
              11 13 17 19,
            and 11 + 13 + 17 + 19 = 60.
      """
-
+    n = 0
+    for k in range(m, m+11):
+        if number_of_factors(k) == 2:
+         n = n + k
 
 
 
