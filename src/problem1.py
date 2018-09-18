@@ -2,15 +2,15 @@
 Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and JUSTIN OGASAWARA.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_problem1a()
+    #run_test_problem1a()
     run_test_problem1b()
 
 
@@ -88,8 +88,27 @@ def problem1a(rectangle, square, thickness, window):
       :type thickness: int
       :type window:    rg.RoseWindow
     """
+    import rosegraphics as rg
+
+    rectangle.attach_to(window)
+    square.attach_to(window)
+    window.render(0.5)
+    Center_of_Square = square.center
+    Cen_of_Rec = rectangle.get_center()
+    Rec_height = rectangle.get_height()
+    top_of_Rec = rg.Point(Cen_of_Rec.x, Cen_of_Rec.y - (0.5*Rec_height))
+
+    line_color = rectangle.outline_color
+    start = Center_of_Square
+    end = top_of_Rec
+    my_line = rg.Line(start,end)
+    my_line.thickness = thickness
+    my_line.color = line_color
+
+    my_line.attach_to(window)
+    window.render(0.5)
     # --------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # DONE: 2. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
 
@@ -148,6 +167,19 @@ def problem1b(point, win, width, height, color):
       :type height: int
       :type color:  str
     """
+    import rosegraphics as rg
+
+    point.attach_to(win)
+
+    top = point
+    start = rg.Point(top.x - (0.5*width), top.y)
+    end = rg.Point(top.x + (0.5*width), top.y + height)
+    ellipse = rg.Ellipse(end, start)
+    ellipse.fill_color = color
+    ellipse.attach_to(win)
+
+    win.render()
+
     # --------------------------------------------------------------------------
     # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
